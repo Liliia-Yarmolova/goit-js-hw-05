@@ -20,19 +20,23 @@ class StringBuilder {
 
         
     append(str) {
-       return this._value = `${this._value}${str}`
+    //    this._value = `${this._value}${str}`
+    this._value = this._value.concat('', str)
     }
 
 
     prepend(str) {
-        return this._value =`${str}${this._value}`
+        // this._value = `${str}${this._value}`
+        
+        this._value = str.concat('', this._value)
     }
 
-//     pad(str) {
+    pad(str) {
 
-//         //  this._value = `${str}${this._value}${str}`
-//         this._value = `${this._value.append(str)}${this._value}${this._value.prepend(str)}`
-// }
+        //  this._value = `${str}${this._value}${str}`
+     this.append(str)
+        this.prepend(str)
+}
 
 }
 
@@ -44,5 +48,5 @@ console.log(builder.value); // '.^'
 builder.prepend('^');
 console.log(builder.value); // '^.^'
 
-// builder.pad('=');
-// console.log(builder.value); // '=^.^='
+builder.pad('=');
+console.log(builder.value); // '=^.^='
